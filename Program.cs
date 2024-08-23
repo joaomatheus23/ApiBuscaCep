@@ -51,12 +51,13 @@ public class Program
         {
             var apiClient = new ApiClient();
             Console.Write("Digite o CEP: ");
-            string cep = Console.ReadLine();
+            string cep = Console.ReadLine().ToString();
 
             var endereco = await apiClient.GetEnderecoAsync(cep);
-
-            // Exibe o endereço completo no terminal
-            Console.WriteLine($"Endereço: {endereco.Logradouro}, {endereco.Bairro}, {endereco.Localidade} - {endereco.Uf}, CEP: {endereco.Cep}");
+            Console.WriteLine($"Logradouro: {endereco.Logradouro}"); // Nome da rua
+            Console.WriteLine($"Bairro: {endereco.Bairro}");         // Nome do bairro
+            Console.WriteLine($"Localidade: {endereco.Localidade}"); // Nome da cidade
+            Console.ReadKey();
         }
         catch (Exception ex)
         {
